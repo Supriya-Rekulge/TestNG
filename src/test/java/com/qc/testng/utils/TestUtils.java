@@ -9,6 +9,8 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
 
 public class TestUtils {
 	
@@ -50,6 +52,14 @@ public class TestUtils {
 		}
 		
 		return testData;
+		
+	}
+	
+	public String handleAlert(WebDriver driver) {
+		Alert alt = driver.switchTo().alert();
+		String altText = alt.getText();
+		alt.accept();
+		return altText;
 		
 	}
 

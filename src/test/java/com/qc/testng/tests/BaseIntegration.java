@@ -19,8 +19,10 @@ public class BaseIntegration {
 	Properties prop;
 	WebDriver driver;
 	TestUtils test = new TestUtils();
-	WebElement email, pass, signin,logout;
-	String tName;
+	WebElement email, pass, signin,logout, regPageLink;
+	WebElement rName, rMobile, rEmail, rPass, rSubmit;
+	String tName, actResult, expResult, id;
+	
 	
 	@BeforeSuite
 	public void doSetUp() throws IOException {
@@ -41,6 +43,12 @@ public class BaseIntegration {
 	@DataProvider
 	public Object[][] loginData() throws IOException{
 		return test.readExcelData("Sheet1");
+	}
+	
+	@DataProvider
+	public Object[][] registerData() throws IOException{
+		return test.readExcelData("Sheet2");
+		
 	}
 	
 	@AfterSuite
